@@ -1,0 +1,3778 @@
+<?xml version="1.0" encoding="utf-16"?>
+<comparison direction="1to2" timestamp="6 Aug 2024 6:49 PM">
+	<datasources>
+		<datasource type="folder" id="1">
+			<server>Scripts</server>
+			<database>RedgateScripts</database>
+		</datasource>
+		<datasource type="live" id="2">
+			<server>tcp:ue1sbstgdornsql01.database.windows.net,1433;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;</server>
+			<database>Ue1SbStgDornDb</database>
+		</datasource>
+	</datasources>
+	<differences>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[AOEQuestion]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">AOEQuestion</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">AOEQuestion</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[AOEQuestion]</left>
+					<right>CREATE TABLE [dbo].[AOEQuestion]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[AOEQuestionId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[AOEQuestionId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[AOEQuestionGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_AOEQuestion_AOEQuestionGuid] DEFAULT (newid()),</left>
+					<right>[AOEQuestionGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_AOEQuestion_AOEQuestionGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[QuestionCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[QuestionCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[OriginalQuestionCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[OriginalQuestionCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Question] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Question] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[QuestionType] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[QuestionType] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[AnswerRequired] [bit] NOT NULL,</left>
+					<right>[AnswerRequired] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DisplayOrder] [int] NULL,</left>
+					<right>[DisplayOrder] [int] NULL,</right>
+				</line>
+				<line type="different">
+					<left>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_AOEQuestion_InternalDisplayOrder] DEFAULT ((0)),</left>
+					<right>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_AOEQuestion_InternalDisplayOrder] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestion_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestion_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestion_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestion_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_AOEQuestion_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_AOEQuestion_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_AOEQuestion_LastModifiedDate] ON [dbo].[AOEQuestion]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[AOEQuestion]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[AOEQuestion] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[AOEQuestionId] = ins.[AOEQuestionId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[AOEQuestion] ADD CONSTRAINT [PK_AOEQuestion] PRIMARY KEY CLUSTERED ([AOEQuestionId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[AOEQuestion] ADD CONSTRAINT [PK_AOEQuestion] PRIMARY KEY CLUSTERED ([AOEQuestionId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_AOEQuestion_AOEQuestionGuid] ON [dbo].[AOEQuestion] ([AOEQuestionGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_AOEQuestion_AOEQuestionGuid] ON [dbo].[AOEQuestion] ([AOEQuestionGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_AOEQuestion_OrderableItemGuid] ON [dbo].[AOEQuestion] ([OrderableItemGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_AOEQuestion_OrderableItemGuid] ON [dbo].[AOEQuestion] ([OrderableItemGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[AOEQuestion] ADD CONSTRAINT [FK_AOEQuestion_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[AOEQuestion] ADD CONSTRAINT [FK_AOEQuestion_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[AOEQuestionAnswer]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">AOEQuestionAnswer</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">AOEQuestionAnswer</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[AOEQuestionAnswer]</left>
+					<right>CREATE TABLE [dbo].[AOEQuestionAnswer]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[AOEQuestionAnswerId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[AOEQuestionAnswerId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[AOEQuestionAnswerGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_AOEQuestionAnswerGuid] DEFAULT (newid()),</left>
+					<right>[AOEQuestionAnswerGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_AOEQuestionAnswerGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[AOEQuestionGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[AOEQuestionGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Answer] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Answer] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_InternalDisplayOrder] DEFAULT ((0)),</left>
+					<right>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_InternalDisplayOrder] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_AOEQuestionAnswer_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_AOEQuestionAnswer_LastModifiedDate] ON [dbo].[AOEQuestionAnswer]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[AOEQuestionAnswer]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[AOEQuestionAnswer] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[AOEQuestionAnswerId] = ins.[AOEQuestionAnswerId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[AOEQuestionAnswer] ADD CONSTRAINT [PK_AOEQuestionAnswer] PRIMARY KEY CLUSTERED ([AOEQuestionAnswerId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[AOEQuestionAnswer] ADD CONSTRAINT [PK_AOEQuestionAnswer] PRIMARY KEY CLUSTERED ([AOEQuestionAnswerId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_AOEQuestionAnswer_AOEQuestionAnswerGuid] ON [dbo].[AOEQuestionAnswer] ([AOEQuestionAnswerGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_AOEQuestionAnswer_AOEQuestionAnswerGuid] ON [dbo].[AOEQuestionAnswer] ([AOEQuestionAnswerGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_AOEQuestionAnswer_AOEQUestionGuid] ON [dbo].[AOEQuestionAnswer] ([AOEQuestionGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_AOEQuestionAnswer_AOEQUestionGuid] ON [dbo].[AOEQuestionAnswer] ([AOEQuestionGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[AOEQuestionAnswer] ADD CONSTRAINT [FK_AOEQuestionAnswer_AOEQuestion] FOREIGN KEY ([AOEQuestionGuid]) REFERENCES [dbo].[AOEQuestion] ([AOEQuestionGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[AOEQuestionAnswer] ADD CONSTRAINT [FK_AOEQuestionAnswer_AOEQuestion] FOREIGN KEY ([AOEQuestionGuid]) REFERENCES [dbo].[AOEQuestion] ([AOEQuestionGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[Component]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">Component</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">Component</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[Component]</left>
+					<right>CREATE TABLE [dbo].[Component]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[ComponentId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[ComponentId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[ComponentGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Component_ComponentGuid] DEFAULT (newid()),</left>
+					<right>[ComponentGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Component_ComponentGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Code] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Code] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Name] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Name] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Loinc] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Loinc] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Uom] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Uom] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Range] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Range] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Type] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Type] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_Component_InternalDisplayOrder] DEFAULT ((0)),</left>
+					<right>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_Component_InternalDisplayOrder] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Component_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Component_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Component_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Component_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Component_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Component_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_Component_LastModifiedDate] ON [dbo].[Component]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[Component]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[Component] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[ComponentId] = ins.[ComponentId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[Component] ADD CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED ([ComponentId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[Component] ADD CONSTRAINT [PK_Component] PRIMARY KEY CLUSTERED ([ComponentId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Component_OrderableItemId] ON [dbo].[Component] ([OrderableItemGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Component_OrderableItemId] ON [dbo].[Component] ([OrderableItemGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Component] ADD CONSTRAINT [FK_Component_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[Component] ADD CONSTRAINT [FK_Component_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[DornLabCode]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">DornLabCode</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">DornLabCode</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[DornLabCode]</left>
+					<right>CREATE TABLE [dbo].[DornLabCode]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[DornLabCodeId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[DornLabCodeId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[DornLabCodeGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_DornLabCode_DornLabCodeGuid] DEFAULT (newid()),</left>
+					<right>[DornLabCodeGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_DornLabCode_DornLabCodeGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LabGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[LabGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Code] [nvarchar] (450) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Code] [nvarchar] (450) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_DornLabCode_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_DornLabCode_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_DornLabCode_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_DornLabCode_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_DornLabCode_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_DornLabCode_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_DornLabCode_LastModifiedDate] ON [dbo].[DornLabCode]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[DornLabCode]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[DornLabCode] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[DornLabCodeId] = ins.[DornLabCodeId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[DornLabCode] ADD CONSTRAINT [PK_DornLabCode] PRIMARY KEY CLUSTERED ([DornLabCodeId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[DornLabCode] ADD CONSTRAINT [PK_DornLabCode] PRIMARY KEY CLUSTERED ([DornLabCodeId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_DornLabCode_DornLabCodeGuid] ON [dbo].[DornLabCode] ([DornLabCodeGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_DornLabCode_DornLabCodeGuid] ON [dbo].[DornLabCode] ([DornLabCodeGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_DornLabCode_LabGuid_Code] ON [dbo].[DornLabCode] ([LabGuid], [Code]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_DornLabCode_LabGuid_Code] ON [dbo].[DornLabCode] ([LabGuid], [Code])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[GatewayLog]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">GatewayLog</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">GatewayLog</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[GatewayLog]</left>
+					<right>CREATE TABLE [dbo].[GatewayLog]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[GatewayLogId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[GatewayLogId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[GatewayLogGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_GatewayLog_GatewayLogGuid] DEFAULT (newid()),</left>
+					<right>[GatewayLogGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_GatewayLog_GatewayLogGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LogLevel] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[LogLevel] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Message] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Message] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Exception] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Exception] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_GatewayLog_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_GatewayLog_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_GatewayLog_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_GatewayLog_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_GatewayLog_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_GatewayLog_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_GatewayLog_LastModifiedDate] ON [dbo].[GatewayLog]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[GatewayLog]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[GatewayLog] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[GatewayLogId] = ins.[GatewayLogId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[GatewayLog] ADD CONSTRAINT [PK_GatewayLog] PRIMARY KEY CLUSTERED ([GatewayLogId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[GatewayLog] ADD CONSTRAINT [PK_GatewayLog] PRIMARY KEY CLUSTERED ([GatewayLogId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_GatewayLog_GatewayLogGuid] ON [dbo].[GatewayLog] ([GatewayLogGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_GatewayLog_GatewayLogGuid] ON [dbo].[GatewayLog] ([GatewayLogGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[LabCatalogItem]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">LabCatalogItem</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">LabCatalogItem</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[LabCatalogItem]</left>
+					<right>CREATE TABLE [dbo].[LabCatalogItem]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[LabCatalogItemId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[LabCatalogItemId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[LabCatalogItemGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_LabCatalogItem_LabCatalogItemGuid] DEFAULT (newid()),</left>
+					<right>[LabCatalogItemGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_LabCatalogItem_LabCatalogItemGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[MasterLabCatalogItemId] [nvarchar] (450) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[MasterLabCatalogItemId] [nvarchar] (450) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Name] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Name] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[TypeCode] [int] NOT NULL,</left>
+					<right>[TypeCode] [int] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Source] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Source] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ExternalId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[ExternalId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[CPTCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[CPTCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LOINC] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LOINC] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Comment] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Comment] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DiagnosisCode] [int] NULL,</left>
+					<right>[DiagnosisCode] [int] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Frequency] [int] NULL,</left>
+					<right>[Frequency] [int] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsOrderable] [bit] NOT NULL,</left>
+					<right>[IsOrderable] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsArchived] [bit] NOT NULL,</left>
+					<right>[IsArchived] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsBillable] [bit] NULL,</left>
+					<right>[IsBillable] [bit] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsExperimental] [bit] NULL,</left>
+					<right>[IsExperimental] [bit] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsInHouse] [bit] NOT NULL,</left>
+					<right>[IsInHouse] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ContainerCode] [int] NULL,</left>
+					<right>[ContainerCode] [int] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Label] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Label] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[TermUID] [uniqueidentifier] NULL,</left>
+					<right>[TermUID] [uniqueidentifier] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Inserted] [datetime2] NOT NULL,</left>
+					<right>[Inserted] [datetime2] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LastUpdated] [datetime2] NOT NULL,</left>
+					<right>[LastUpdated] [datetime2] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCatalogItem_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCatalogItem_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCatalogItem_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCatalogItem_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_LabCatalogItem_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_LabCatalogItem_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_LabCatalogItem_LastModifiedDate] ON [dbo].[LabCatalogItem]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[LabCatalogItem]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[LabCatalogItem] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[LabCatalogItemId] = ins.[LabCatalogItemId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[LabCatalogItem] ADD CONSTRAINT [PK_LabCatalogItem] PRIMARY KEY CLUSTERED ([LabCatalogItemId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[LabCatalogItem] ADD CONSTRAINT [PK_LabCatalogItem] PRIMARY KEY CLUSTERED ([LabCatalogItemId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_LabCatalogItem_LabCatalogItemGuid] ON [dbo].[LabCatalogItem] ([LabCatalogItemGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_LabCatalogItem_LabCatalogItemGuid] ON [dbo].[LabCatalogItem] ([LabCatalogItemGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_LabCatalogItem_MasterLabCatalogItemId] ON [dbo].[LabCatalogItem] ([MasterLabCatalogItemId]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_LabCatalogItem_MasterLabCatalogItemId] ON [dbo].[LabCatalogItem] ([MasterLabCatalogItemId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[LabCodeMapping]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">LabCodeMapping</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">LabCodeMapping</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[LabCodeMapping]</left>
+					<right>CREATE TABLE [dbo].[LabCodeMapping]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[LabCodeMappingId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[LabCodeMappingId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[LabCodeMappingGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_LabCodeMapping_LabCodeMappingGuid] DEFAULT (newid()),</left>
+					<right>[LabCodeMappingGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_LabCodeMapping_LabCodeMappingGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[ActiveFrom] [datetime2] NOT NULL,</left>
+					<right>[ActiveFrom] [datetime2] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ActiveTo] [datetime2] NULL,</left>
+					<right>[ActiveTo] [datetime2] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LabCatalogItemGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[LabCatalogItemGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DornLabCodeGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[DornLabCodeGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCodeMapping_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCodeMapping_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCodeMapping_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCodeMapping_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_LabCodeMapping_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_LabCodeMapping_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_LabCodeMapping_LastModifiedDate] ON [dbo].[LabCodeMapping]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[LabCodeMapping]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[LabCodeMapping] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[LabCodeMappingId] = ins.[LabCodeMappingId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[LabCodeMapping] ADD CONSTRAINT [PK_LabCodeMapping] PRIMARY KEY CLUSTERED ([LabCodeMappingId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[LabCodeMapping] ADD CONSTRAINT [PK_LabCodeMapping] PRIMARY KEY CLUSTERED ([LabCodeMappingId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_LabCodeMapping_ActiveTo_ActiveFrom] ON [dbo].[LabCodeMapping] ([ActiveTo], [ActiveFrom]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_LabCodeMapping_ActiveTo_ActiveFrom] ON [dbo].[LabCodeMapping] ([ActiveTo], [ActiveFrom])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_LabCodeMapping_DornLabCodeGuid] ON [dbo].[LabCodeMapping] ([DornLabCodeGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_LabCodeMapping_DornLabCodeGuid] ON [dbo].[LabCodeMapping] ([DornLabCodeGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_LabCodeMapping_LabCatalogItemGuid] ON [dbo].[LabCodeMapping] ([LabCatalogItemGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_LabCodeMapping_LabCatalogItemGuid] ON [dbo].[LabCodeMapping] ([LabCatalogItemGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_LabCodeMapping_LabCodeMappingGuid] ON [dbo].[LabCodeMapping] ([LabCodeMappingGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_LabCodeMapping_LabCodeMappingGuid] ON [dbo].[LabCodeMapping] ([LabCodeMappingGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[LabCodeMapping] ADD CONSTRAINT [FK_LabCodeMapping_DornLabCode] FOREIGN KEY ([DornLabCodeGuid]) REFERENCES [dbo].[DornLabCode] ([DornLabCodeGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[LabCodeMapping] ADD CONSTRAINT [FK_LabCodeMapping_DornLabCode] FOREIGN KEY ([DornLabCodeGuid]) REFERENCES [dbo].[DornLabCode] ([DornLabCodeGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[LabCodeMapping] ADD CONSTRAINT [FK_LabCodeMapping_LabCatalogItem] FOREIGN KEY ([LabCatalogItemGuid]) REFERENCES [dbo].[LabCatalogItem] ([LabCatalogItemGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[LabCodeMapping] ADD CONSTRAINT [FK_LabCodeMapping_LabCatalogItem] FOREIGN KEY ([LabCatalogItemGuid]) REFERENCES [dbo].[LabCatalogItem] ([LabCatalogItemGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[LabCompendium]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">LabCompendium</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">LabCompendium</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[LabCompendium]</left>
+					<right>CREATE TABLE [dbo].[LabCompendium]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[LabCompendiumId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[LabCompendiumId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[LabCompendiumGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_LabCompendium_LabCompendiumGuid] DEFAULT (newid()),</left>
+					<right>[LabCompendiumGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_LabCompendium_LabCompendiumGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[CompendiumDate] [datetime2] NOT NULL,</left>
+					<right>[CompendiumDate] [datetime2] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Version] [varchar] (450) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Version] [varchar] (450) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DornCreatedDateTimeUtc] [varchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[DornCreatedDateTimeUtc] [varchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LabGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[LabGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LabType] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[LabType] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LabName] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[LabName] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[OrderInserted] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_OrderInserted] DEFAULT (getutcdate()),</left>
+					<right>[OrderInserted] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_OrderInserted] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[OrderLastUpdated] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_OrderLastUpdated] DEFAULT (getutcdate()),</left>
+					<right>[OrderLastUpdated] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_OrderLastUpdated] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_LabCompendium_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_LabCompendium_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_LabCompendium_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_LabCompendium_LastModifiedDate] ON [dbo].[LabCompendium]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[LabCompendium]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[LabCompendium] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[LabCompendiumId] = ins.[LabCompendiumId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(OrderLastUpdated)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[LabCompendium]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET OrderLastUpdated = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[LabCompendium] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[LabCompendiumId] = ins.[LabCompendiumId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[LabCompendium] ADD CONSTRAINT [PK_LabCompendiums] PRIMARY KEY CLUSTERED ([LabCompendiumId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[LabCompendium] ADD CONSTRAINT [PK_LabCompendiums] PRIMARY KEY CLUSTERED ([LabCompendiumId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_LabCompendium_CompendiumDate] ON [dbo].[LabCompendium] ([CompendiumDate]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_LabCompendium_CompendiumDate] ON [dbo].[LabCompendium] ([CompendiumDate])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_LabCompendium_LabCompeniumGuid] ON [dbo].[LabCompendium] ([LabCompendiumGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_LabCompendium_LabCompeniumGuid] ON [dbo].[LabCompendium] ([LabCompendiumGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_LabCompendium_LabGuid_CompendiumDate] ON [dbo].[LabCompendium] ([LabGuid], [CompendiumDate]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_LabCompendium_LabGuid_CompendiumDate] ON [dbo].[LabCompendium] ([LabGuid], [CompendiumDate])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_LabCompendium_LabGuid_Version] ON [dbo].[LabCompendium] ([LabGuid], [Version]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_LabCompendium_LabGuid_Version] ON [dbo].[LabCompendium] ([LabGuid], [Version])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[Order]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">Order</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">Order</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[Order]</left>
+					<right>CREATE TABLE [dbo].[Order]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[OrderId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[OrderId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[OrderGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Order_OrderGuid] DEFAULT (newid()),</left>
+					<right>[OrderGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Order_OrderGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[DornOrderGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[DornOrderGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[OrderStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[OrderStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[RegistrationGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[RegistrationGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[PrimaryId] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[PrimaryId] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LabGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[LabGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[AccountNumber] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[AccountNumber] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[OrderNumber] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[OrderNumber] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[PatientId] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[PatientId] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Timestamp] [timestamp] NOT NULL,</left>
+					<right>[Timestamp] [timestamp] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DornCreatedDateTimeUtc] [datetime2] NOT NULL,</left>
+					<right>[DornCreatedDateTimeUtc] [datetime2] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[OrderInserted] [datetime2] NOT NULL CONSTRAINT [DF_Order_OrderInserted] DEFAULT (getutcdate()),</left>
+					<right>[OrderInserted] [datetime2] NOT NULL CONSTRAINT [DF_Order_OrderInserted] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[OrderLastUpdated] [datetime2] NOT NULL CONSTRAINT [DF_Order_OrderLastUpdated] DEFAULT (getutcdate()),</left>
+					<right>[OrderLastUpdated] [datetime2] NOT NULL CONSTRAINT [DF_Order_OrderLastUpdated] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Order_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Order_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Order_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Order_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Order_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Order_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_Order_LastModifiedDate] ON [dbo].[Order]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[Order]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[Order] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.OrderId = ins.OrderId;</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(OrderLastUpdated)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[Order]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET OrderLastUpdated = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[Order] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.OrderId = ins.OrderId;</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[Order] ADD CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED ([OrderId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[Order] ADD CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED ([OrderId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Order_DornOrderGuid] ON [dbo].[Order] ([DornOrderGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Order_DornOrderGuid] ON [dbo].[Order] ([DornOrderGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_Order_OrderGuid] ON [dbo].[Order] ([OrderGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_Order_OrderGuid] ON [dbo].[Order] ([OrderGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Order_RegistrationId] ON [dbo].[Order] ([RegistrationGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Order_RegistrationId] ON [dbo].[Order] ([RegistrationGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Order] ADD CONSTRAINT [FK_Order_OrderStatus] FOREIGN KEY ([OrderStatusCode]) REFERENCES [dbo].[OrderStatus] ([OrderStatusCode])</left>
+					<right>ALTER TABLE [dbo].[Order] ADD CONSTRAINT [FK_Order_OrderStatus] FOREIGN KEY ([OrderStatusCode]) REFERENCES [dbo].[OrderStatus] ([OrderStatusCode])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Order] ADD CONSTRAINT [FK_Order_RegistrationGuid] FOREIGN KEY ([RegistrationGuid]) REFERENCES [dbo].[Registration] ([RegistrationGuid])</left>
+					<right>ALTER TABLE [dbo].[Order] ADD CONSTRAINT [FK_Order_RegistrationGuid] FOREIGN KEY ([RegistrationGuid]) REFERENCES [dbo].[Registration] ([RegistrationGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[OrderableItem]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">OrderableItem</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">OrderableItem</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[OrderableItem]</left>
+					<right>CREATE TABLE [dbo].[OrderableItem]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[OrderableItemId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[OrderableItemId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[OrderableItemGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_OrderableItem_OrderableItemGuid] DEFAULT (newid()),</left>
+					<right>[OrderableItemGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_OrderableItem_OrderableItemGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LabCompendiumGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[LabCompendiumGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Loinc] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Loinc] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Name] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[Name] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[UniqueName] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[UniqueName] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[TestingFrequency] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[TestingFrequency] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsActive] [bit] NOT NULL,</left>
+					<right>[IsActive] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[SpecimenLimit] [int] NULL,</left>
+					<right>[SpecimenLimit] [int] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[SpecimenTypeNotes] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[SpecimenTypeNotes] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[OrderableItemType] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[OrderableItemType] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DornLabCodeGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[DornLabCodeGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_OrderableItem_InternalDisplayOrder] DEFAULT ((0)),</left>
+					<right>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_OrderableItem_InternalDisplayOrder] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderableItem_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderableItem_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderableItem_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderableItem_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_OrderableItem_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_OrderableItem_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_OrderableItem_LastModifiedDate] ON [dbo].[OrderableItem]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[OrderableItem]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[OrderableItem] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[OrderableItemId] = ins.[OrderableItemId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[OrderableItem] ADD CONSTRAINT [PK_OrderableItem] PRIMARY KEY CLUSTERED ([OrderableItemId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[OrderableItem] ADD CONSTRAINT [PK_OrderableItem] PRIMARY KEY CLUSTERED ([OrderableItemId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_OrderableItem_DornLabCodeGuid] ON [dbo].[OrderableItem] ([DornLabCodeGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_OrderableItem_DornLabCodeGuid] ON [dbo].[OrderableItem] ([DornLabCodeGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_OrderableItem_LabCompendiumGuid] ON [dbo].[OrderableItem] ([LabCompendiumGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_OrderableItem_LabCompendiumGuid] ON [dbo].[OrderableItem] ([LabCompendiumGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderableItem_OrderableItemGuid] ON [dbo].[OrderableItem] ([OrderableItemGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderableItem_OrderableItemGuid] ON [dbo].[OrderableItem] ([OrderableItemGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[OrderableItem] ADD CONSTRAINT [FK_OrderableItem_DornLabCode] FOREIGN KEY ([DornLabCodeGuid]) REFERENCES [dbo].[DornLabCode] ([DornLabCodeGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[OrderableItem] ADD CONSTRAINT [FK_OrderableItem_DornLabCode] FOREIGN KEY ([DornLabCodeGuid]) REFERENCES [dbo].[DornLabCode] ([DornLabCodeGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[OrderableItem] ADD CONSTRAINT [FK_OrderableItem_LabCompendium] FOREIGN KEY ([LabCompendiumGuid]) REFERENCES [dbo].[LabCompendium] ([LabCompendiumGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[OrderableItem] ADD CONSTRAINT [FK_OrderableItem_LabCompendium] FOREIGN KEY ([LabCompendiumGuid]) REFERENCES [dbo].[LabCompendium] ([LabCompendiumGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[OrderCPTCode]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">OrderCPTCode</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">OrderCPTCode</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[OrderCPTCode]</left>
+					<right>CREATE TABLE [dbo].[OrderCPTCode]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[OrderCPTCodeId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[OrderCPTCodeId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[OrderCPTCodeGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_OrderCPTCode_OrderCPTCodeGuid] DEFAULT (newid()),</left>
+					<right>[OrderCPTCodeGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_OrderCPTCode_OrderCPTCodeGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[CptCode] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[CptCode] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ServiceUnitsCount] [int] NULL,</left>
+					<right>[ServiceUnitsCount] [int] NULL,</right>
+				</line>
+				<line type="different">
+					<left>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_OrderCPTCode_InternalDisplayOrder] DEFAULT ((0)),</left>
+					<right>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_OrderCPTCode_InternalDisplayOrder] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderCPTCode_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderCPTCode_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderCPTCode_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderCPTCode_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_OrderCPTCode_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_OrderCPTCode_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_OrderCPTCode_LastModifiedDate] ON [dbo].[OrderCPTCode]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[OrderCPTCode]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[OrderCPTCode] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[OrderCPTCodeId] = ins.[OrderCPTCodeId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[OrderCPTCode] ADD CONSTRAINT [PK_OrderCPTCode] PRIMARY KEY CLUSTERED ([OrderCPTCodeId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[OrderCPTCode] ADD CONSTRAINT [PK_OrderCPTCode] PRIMARY KEY CLUSTERED ([OrderCPTCodeId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_OrderCPTCode_OrderableItemGuid] ON [dbo].[OrderCPTCode] ([OrderableItemGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_OrderCPTCode_OrderableItemGuid] ON [dbo].[OrderCPTCode] ([OrderableItemGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderCPTCode_OrderCPTCodeGuid] ON [dbo].[OrderCPTCode] ([OrderCPTCodeGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderCPTCode_OrderCPTCodeGuid] ON [dbo].[OrderCPTCode] ([OrderCPTCodeGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[OrderCPTCode] ADD CONSTRAINT [FK_OrderCPTCode_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[OrderCPTCode] ADD CONSTRAINT [FK_OrderCPTCode_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[OrderStatus]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">OrderStatus</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">OrderStatus</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[OrderStatus]</left>
+					<right>CREATE TABLE [dbo].[OrderStatus]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[OrderStatusId] [bigint] NOT NULL,</left>
+					<right>[OrderStatusId] [bigint] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[OrderStatusGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_OrderStatus_OrderStatusGuid] DEFAULT (newid()),</left>
+					<right>[OrderStatusGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_OrderStatus_OrderStatusGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[OrderStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[OrderStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[OrderStatusDescription] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[OrderStatusDescription] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderStatus_CreatedDateTimeUtcs] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderStatus_CreatedDateTimeUtcs] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderStatus_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_OrderStatus_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_OrderStatus_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_OrderStatus_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_OrderStatus_LastModifiedDate] ON [dbo].[OrderStatus]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[OrderStatus]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[OrderStatus] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[OrderStatusId] = ins.[OrderStatusId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[OrderStatus] ADD CONSTRAINT [PK_OrderStatus] PRIMARY KEY CLUSTERED ([OrderStatusId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[OrderStatus] ADD CONSTRAINT [PK_OrderStatus] PRIMARY KEY CLUSTERED ([OrderStatusId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderStatus_OrderStatusCode] ON [dbo].[OrderStatus] ([OrderStatusCode]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderStatus_OrderStatusCode] ON [dbo].[OrderStatus] ([OrderStatusCode])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderStatus_OrderStatusGuid] ON [dbo].[OrderStatus] ([OrderStatusGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_OrderStatus_OrderStatusGuid] ON [dbo].[OrderStatus] ([OrderStatusGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[Registration]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">Registration</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">Registration</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[Registration]</left>
+					<right>CREATE TABLE [dbo].[Registration]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[RegistrationId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[RegistrationId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[RegistrationGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Registration_RegistrationGuid] DEFAULT (newid()),</left>
+					<right>[RegistrationGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Registration_RegistrationGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[ShieldTenantId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[ShieldTenantId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ClientId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[ClientId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ClientName] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[ClientName] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[RegistrationStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[RegistrationStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Timestamp] [timestamp] NOT NULL,</left>
+					<right>[Timestamp] [timestamp] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Registration_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Registration_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Registration_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Registration_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Registration_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Registration_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_Registration_LastModifiedDate] ON [dbo].[Registration]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[Registration]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[Registration] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[RegistrationId] = ins.[RegistrationId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[Registration] ADD CONSTRAINT [PK_Registration] PRIMARY KEY CLUSTERED ([RegistrationId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[Registration] ADD CONSTRAINT [PK_Registration] PRIMARY KEY CLUSTERED ([RegistrationId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_Registration_RegistrationGuid] ON [dbo].[Registration] ([RegistrationGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_Registration_RegistrationGuid] ON [dbo].[Registration] ([RegistrationGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Registration] ADD CONSTRAINT [FK_Registration_RegistrationStatusCode] FOREIGN KEY ([RegistrationStatusCode]) REFERENCES [dbo].[RegistrationStatus] ([RegistrationStatusCode])</left>
+					<right>ALTER TABLE [dbo].[Registration] ADD CONSTRAINT [FK_Registration_RegistrationStatusCode] FOREIGN KEY ([RegistrationStatusCode]) REFERENCES [dbo].[RegistrationStatus] ([RegistrationStatusCode])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[RegistrationStatus]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">RegistrationStatus</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">RegistrationStatus</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[RegistrationStatus]</left>
+					<right>CREATE TABLE [dbo].[RegistrationStatus]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[RegistrationStatusId] [bigint] NOT NULL,</left>
+					<right>[RegistrationStatusId] [bigint] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[RegistrationStatusGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_RegistrationStatus_RegistrationStatusGuid] DEFAULT (newid()),</left>
+					<right>[RegistrationStatusGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_RegistrationStatus_RegistrationStatusGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[RegistrationStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[RegistrationStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[RegistrationStatusDescription] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[RegistrationStatusDescription] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_RegistrationStatus_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_RegistrationStatus_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_RegistrationStatus_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_RegistrationStatus_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_RegistrationStatus_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_RegistrationStatus_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_RegistrationStatus_LastModifiedDate] ON [dbo].[RegistrationStatus]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[RegistrationStatus]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[RegistrationStatus] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[RegistrationStatusId] = ins.[RegistrationStatusId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[RegistrationStatus] ADD CONSTRAINT [PK_RegistrationStatus] PRIMARY KEY CLUSTERED ([RegistrationStatusId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[RegistrationStatus] ADD CONSTRAINT [PK_RegistrationStatus] PRIMARY KEY CLUSTERED ([RegistrationStatusId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_RegistrationStatus_RegistrationStatusCode] ON [dbo].[RegistrationStatus] ([RegistrationStatusCode]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_RegistrationStatus_RegistrationStatusCode] ON [dbo].[RegistrationStatus] ([RegistrationStatusCode])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_RegistrationStatus_RegistrationStatusGuid] ON [dbo].[RegistrationStatus] ([RegistrationStatusGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_RegistrationStatus_RegistrationStatusGuid] ON [dbo].[RegistrationStatus] ([RegistrationStatusGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[Result]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">Result</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">Result</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[Result]</left>
+					<right>CREATE TABLE [dbo].[Result]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[ResultId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[ResultId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[ResultGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Result_ResultGuid] DEFAULT (newid()),</left>
+					<right>[ResultGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Result_ResultGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[DornResultGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[DornResultGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ResultStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[ResultStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsNacked] [bit] NOT NULL,</left>
+					<right>[IsNacked] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[RegistrationGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[RegistrationGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[OrderGuid] [uniqueidentifier] NULL,</left>
+					<right>[OrderGuid] [uniqueidentifier] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DornOrderGuid] [uniqueidentifier] NULL,</left>
+					<right>[DornOrderGuid] [uniqueidentifier] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[OrderNumber] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[OrderNumber] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[LabGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[LabGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[AccountNumber] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[AccountNumber] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[PatientId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[PatientId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[PrimaryId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[PrimaryId] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[HasAbnormalFlags] [bit] NOT NULL,</left>
+					<right>[HasAbnormalFlags] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[DornStatus] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[DornStatus] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[IsUnsolicited] [bit] NOT NULL,</left>
+					<right>[IsUnsolicited] [bit] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ClientReceivedDate] [datetime2] NULL,</left>
+					<right>[ClientReceivedDate] [datetime2] NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Timestamp] [timestamp] NOT NULL,</left>
+					<right>[Timestamp] [timestamp] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[ResultInserted] [datetime2] NOT NULL CONSTRAINT [DF_Result_ResultInserted] DEFAULT (getutcdate()),</left>
+					<right>[ResultInserted] [datetime2] NOT NULL CONSTRAINT [DF_Result_ResultInserted] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[ResultLastUpdated] [datetime2] NOT NULL CONSTRAINT [DF_Result_ResultLastUpdated] DEFAULT (getutcdate()),</left>
+					<right>[ResultLastUpdated] [datetime2] NOT NULL CONSTRAINT [DF_Result_ResultLastUpdated] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Result_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Result_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Result_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Result_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Result_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Result_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_Result_LastModifiedDate] ON [dbo].[Result]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[Result]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[Result] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.ResultId = ins.ResultId;</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(ResultLastUpdated)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[Result]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET ResultLastUpdated = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[Result] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.ResultId = ins.ResultId;</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [PK_Result] PRIMARY KEY CLUSTERED ([ResultId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [PK_Result] PRIMARY KEY CLUSTERED ([ResultId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Result_ClientReceivedDate] ON [dbo].[Result] ([ClientReceivedDate]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Result_ClientReceivedDate] ON [dbo].[Result] ([ClientReceivedDate])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Result_DornResultGuid] ON [dbo].[Result] ([DornResultGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Result_DornResultGuid] ON [dbo].[Result] ([DornResultGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Result_OrderGuid] ON [dbo].[Result] ([OrderGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Result_OrderGuid] ON [dbo].[Result] ([OrderGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Result_RegistrationGuid] ON [dbo].[Result] ([RegistrationGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Result_RegistrationGuid] ON [dbo].[Result] ([RegistrationGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_Result_ResultGuid] ON [dbo].[Result] ([ResultGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_Result_ResultGuid] ON [dbo].[Result] ([ResultGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Result_ResultLastUpdated] ON [dbo].[Result] ([ResultLastUpdated]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Result_ResultLastUpdated] ON [dbo].[Result] ([ResultLastUpdated])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Result_ResultStatusCode_ResultInserted_IsNacked] ON [dbo].[Result] ([ResultStatusCode], [ResultInserted], [IsNacked]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Result_ResultStatusCode_ResultInserted_IsNacked] ON [dbo].[Result] ([ResultStatusCode], [ResultInserted], [IsNacked])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [FK_Result_Order] FOREIGN KEY ([OrderGuid]) REFERENCES [dbo].[Order] ([OrderGuid])</left>
+					<right>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [FK_Result_Order] FOREIGN KEY ([OrderGuid]) REFERENCES [dbo].[Order] ([OrderGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [FK_Result_Registration] FOREIGN KEY ([RegistrationGuid]) REFERENCES [dbo].[Registration] ([RegistrationGuid])</left>
+					<right>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [FK_Result_Registration] FOREIGN KEY ([RegistrationGuid]) REFERENCES [dbo].[Registration] ([RegistrationGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [FK_Result_ResultStatus] FOREIGN KEY ([ResultStatusCode]) REFERENCES [dbo].[ResultStatus] ([ResultStatusCode])</left>
+					<right>ALTER TABLE [dbo].[Result] ADD CONSTRAINT [FK_Result_ResultStatus] FOREIGN KEY ([ResultStatusCode]) REFERENCES [dbo].[ResultStatus] ([ResultStatusCode])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[ResultStatus]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">ResultStatus</object>
+			<object owner="dbo" rlastmodified="2023-06-23 17:40" id="2">ResultStatus</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[ResultStatus]</left>
+					<right>CREATE TABLE [dbo].[ResultStatus]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[ResultStatusId] [bigint] NOT NULL,</left>
+					<right>[ResultStatusId] [bigint] NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[ResultStatusGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_ResultStatus_ResultStatusGuid] DEFAULT (newid()),</left>
+					<right>[ResultStatusGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_ResultStatus_ResultStatusGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[ResultStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[ResultStatusCode] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[ResultStatusDescription] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</left>
+					<right>[ResultStatusDescription] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_ResultStatus_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_ResultStatus_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_ResultStatus_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_ResultStatus_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_ResultStatus_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_ResultStatus_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_ResultStatus_LastModifiedDate] ON [dbo].[ResultStatus]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[ResultStatus]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[ResultStatus] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[ResultStatusId] = ins.[ResultStatusId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[ResultStatus] ADD CONSTRAINT [PK_ResultStatus] PRIMARY KEY CLUSTERED ([ResultStatusId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[ResultStatus] ADD CONSTRAINT [PK_ResultStatus] PRIMARY KEY CLUSTERED ([ResultStatusId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_ResultStatus_ResultStatusCode] ON [dbo].[ResultStatus] ([ResultStatusCode]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_ResultStatus_ResultStatusCode] ON [dbo].[ResultStatus] ([ResultStatusCode])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_ResultStatus_ResultStatusGuid] ON [dbo].[ResultStatus] ([ResultStatusGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_ResultStatus_ResultStatusGuid] ON [dbo].[ResultStatus] ([ResultStatusGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="table" status="different" fqn="table-[dbo].[Specimen]">
+			<object llastmodified="2024-08-06 18:49" owner="dbo" id="1">Specimen</object>
+			<object owner="dbo" rlastmodified="2023-06-22 20:52" id="2">Specimen</object>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- Columns</left>
+					<right>-- Columns</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>CREATE TABLE [dbo].[Specimen]</left>
+					<right>CREATE TABLE [dbo].[Specimen]</right>
+				</line>
+				<line type="same">
+					<left>(</left>
+					<right>(</right>
+				</line>
+				<line type="same">
+					<left>[SpecimenId] [bigint] NOT NULL IDENTITY(1, 1),</left>
+					<right>[SpecimenId] [bigint] NOT NULL IDENTITY(1, 1),</right>
+				</line>
+				<line type="different">
+					<left>[SpecimenGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Specimen_SpecimenGuid] DEFAULT (newid()),</left>
+					<right>[SpecimenGuid] [uniqueidentifier] NOT NULL CONSTRAINT [DF_Specimen_SpecimenGuid] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</left>
+					<right>[OrderableItemGuid] [uniqueidentifier] NOT NULL,</right>
+				</line>
+				<line type="same">
+					<left>[TypeCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[TypeCode] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Container] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Container] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[Volume] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[Volume] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[StorageRequirements] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[StorageRequirements] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[MinimumVolume] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[MinimumVolume] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="same">
+					<left>[CollectionInstructions] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[CollectionInstructions] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_Specimen_InternalDisplayOrder] DEFAULT ((0)),</left>
+					<right>[InternalDisplayOrder] [int] NOT NULL CONSTRAINT [DF_Specimen_InternalDisplayOrder] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Specimen_CreatedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[CreatedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Specimen_CreatedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="different">
+					<left>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Specimen_LastModifiedDateTimeUtc] DEFAULT (getutcdate()),</left>
+					<right>[LastModifiedDateTimeUtc] [datetime2] NOT NULL CONSTRAINT [DF_Specimen_LastModifiedDateTimeUtc] DEFAULT -- No text is available,</right>
+				</line>
+				<line type="same">
+					<left>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</left>
+					<right>[LastModifiedUser] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,</right>
+				</line>
+				<line type="different">
+					<left>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Specimen_IsDeleted] DEFAULT ((0))</left>
+					<right>[IsDeleted] [bit] NOT NULL CONSTRAINT [DF_Specimen_IsDeleted] DEFAULT -- No text is available</right>
+				</line>
+				<line type="different">
+					<left>) ON [PRIMARY]</left>
+					<right>)</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Triggers</left>
+					<right>-- Triggers</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>CREATE TRIGGER [dbo].[dbo.trg_Specimen_LastModifiedDate] ON [dbo].[Specimen]</left>
+					<right>-- Text was encrypted</right>
+				</line>
+				<line type="different">
+					<left>AFTER UPDATE</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>AS</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET NOCOUNT ON</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>IF NOT UPDATE(LastModifiedDateTimeUtc)</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>BEGIN</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>UPDATE [dbo].[Specimen]</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>SET LastModifiedDateTimeUtc = GETUTCDATE()</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>FROM</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>[dbo].[Specimen] AS tab</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>INNER JOIN inserted AS ins</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>ON tab.[SpecimenId] = ins.[SpecimenId];</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>END</left>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>-- Constraints and Indexes</left>
+					<right>-- Constraints and Indexes</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left>ALTER TABLE [dbo].[Specimen] ADD CONSTRAINT [PK_Specimen] PRIMARY KEY CLUSTERED ([SpecimenId]) ON [PRIMARY]</left>
+					<right>ALTER TABLE [dbo].[Specimen] ADD CONSTRAINT [PK_Specimen] PRIMARY KEY CLUSTERED ([SpecimenId])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE NONCLUSTERED INDEX [IX_Specimen_OrderableItemGuid] ON [dbo].[Specimen] ([OrderableItemGuid]) ON [PRIMARY]</left>
+					<right>CREATE NONCLUSTERED INDEX [IX_Specimen_OrderableItemGuid] ON [dbo].[Specimen] ([OrderableItemGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left>CREATE UNIQUE NONCLUSTERED INDEX [AK_Specimen_SpecimenGuid] ON [dbo].[Specimen] ([SpecimenGuid]) ON [PRIMARY]</left>
+					<right>CREATE UNIQUE NONCLUSTERED INDEX [AK_Specimen_SpecimenGuid] ON [dbo].[Specimen] ([SpecimenGuid])</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+				<line type="same">
+					<left>-- Foreign Keys</left>
+					<right>-- Foreign Keys</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="same">
+					<left>ALTER TABLE [dbo].[Specimen] ADD CONSTRAINT [FK_Specimen_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</left>
+					<right>ALTER TABLE [dbo].[Specimen] ADD CONSTRAINT [FK_Specimen_OrderableItem] FOREIGN KEY ([OrderableItemGuid]) REFERENCES [dbo].[OrderableItem] ([OrderableItemGuid]) ON DELETE CASCADE</right>
+				</line>
+				<line type="same">
+					<left>GO</left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="schema" status="different" fqn="schema-dbo">
+			<object llastmodified="" owner="dbo" id="1">dbo</object>
+			<object owner="dbo" rlastmodified="" id="2">dbo</object>
+			<comparisonstrings>
+				<line type="different">
+					<left> </left>
+					<right>-- Permissions</right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left> </left>
+					<right>GRANT EXECUTE ON SCHEMA:: [dbo] TO [DornUserRole]</right>
+				</line>
+				<line type="different">
+					<left> </left>
+					<right>GO</right>
+				</line>
+				<line type="different">
+					<left> </left>
+					<right>GRANT SELECT ON SCHEMA:: [dbo] TO [DornUserRole]</right>
+				</line>
+				<line type="different">
+					<left> </left>
+					<right>GO</right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_accessadmin">
+			<object llastmodified="" owner="dbo" id="1">db_accessadmin</object>
+			<object owner="dbo" rlastmodified="" id="2">db_accessadmin</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_backupoperator">
+			<object llastmodified="" owner="dbo" id="1">db_backupoperator</object>
+			<object owner="dbo" rlastmodified="" id="2">db_backupoperator</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_datawriter">
+			<object llastmodified="" owner="dbo" id="1">db_datawriter</object>
+			<object owner="dbo" rlastmodified="" id="2">db_datawriter</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_ddladmin">
+			<object llastmodified="" owner="dbo" id="1">db_ddladmin</object>
+			<object owner="dbo" rlastmodified="" id="2">db_ddladmin</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_denydatareader">
+			<object llastmodified="" owner="dbo" id="1">db_denydatareader</object>
+			<object owner="dbo" rlastmodified="" id="2">db_denydatareader</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_denydatawriter">
+			<object llastmodified="" owner="dbo" id="1">db_denydatawriter</object>
+			<object owner="dbo" rlastmodified="" id="2">db_denydatawriter</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_owner">
+			<object llastmodified="" owner="dbo" id="1">db_owner</object>
+			<object owner="dbo" rlastmodified="" id="2">db_owner</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-db_securityadmin">
+			<object llastmodified="" owner="dbo" id="1">db_securityadmin</object>
+			<object owner="dbo" rlastmodified="" id="2">db_securityadmin</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="role" status="equal" fqn="role-public">
+			<object llastmodified="" owner="dbo" id="1">public</object>
+			<object owner="dbo" rlastmodified="" id="2">public</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="user" status="equal" fqn="user-guest">
+			<object llastmodified="" owner="" id="1">guest</object>
+			<object owner="" rlastmodified="" id="2"/>
+			<comparisonstrings>
+				<line type="different">
+					<left>-- User</left>
+					<right> </right>
+				</line>
+				<line type="same">
+					<left/>
+					<right/>
+				</line>
+				<line type="different">
+					<left/>
+					<right> </right>
+				</line>
+				<line type="different">
+					<left>GO</left>
+					<right> </right>
+				</line>
+			</comparisonstrings>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_accessadmin">
+			<object llastmodified="" owner="db_accessadmin" id="1">db_accessadmin</object>
+			<object owner="db_accessadmin" rlastmodified="" id="2">db_accessadmin</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_backupoperator">
+			<object llastmodified="" owner="db_backupoperator" id="1">db_backupoperator</object>
+			<object owner="db_backupoperator" rlastmodified="" id="2">db_backupoperator</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_datareader">
+			<object llastmodified="" owner="db_datareader" id="1">db_datareader</object>
+			<object owner="db_datareader" rlastmodified="" id="2">db_datareader</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_datawriter">
+			<object llastmodified="" owner="db_datawriter" id="1">db_datawriter</object>
+			<object owner="db_datawriter" rlastmodified="" id="2">db_datawriter</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_ddladmin">
+			<object llastmodified="" owner="db_ddladmin" id="1">db_ddladmin</object>
+			<object owner="db_ddladmin" rlastmodified="" id="2">db_ddladmin</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_denydatareader">
+			<object llastmodified="" owner="db_denydatareader" id="1">db_denydatareader</object>
+			<object owner="db_denydatareader" rlastmodified="" id="2">db_denydatareader</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_denydatawriter">
+			<object llastmodified="" owner="db_denydatawriter" id="1">db_denydatawriter</object>
+			<object owner="db_denydatawriter" rlastmodified="" id="2">db_denydatawriter</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_owner">
+			<object llastmodified="" owner="db_owner" id="1">db_owner</object>
+			<object owner="db_owner" rlastmodified="" id="2">db_owner</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-db_securityadmin">
+			<object llastmodified="" owner="db_securityadmin" id="1">db_securityadmin</object>
+			<object owner="db_securityadmin" rlastmodified="" id="2">db_securityadmin</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-guest">
+			<object llastmodified="" owner="guest" id="1">guest</object>
+			<object owner="guest" rlastmodified="" id="2">guest</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-INFORMATION_SCHEMA">
+			<object llastmodified="" owner="INFORMATION_SCHEMA" id="1">INFORMATION_SCHEMA</object>
+			<object owner="INFORMATION_SCHEMA" rlastmodified="" id="2">INFORMATION_SCHEMA</object>
+			<comparisonstrings/>
+		</difference>
+		<difference objecttype="schema" status="equal" fqn="schema-sys">
+			<object llastmodified="" owner="sys" id="1">sys</object>
+			<object owner="sys" rlastmodified="" id="2">sys</object>
+			<comparisonstrings/>
+		</difference>
+	</differences>
+</comparison>
